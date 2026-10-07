@@ -1,0 +1,21 @@
+Coloca aquí tus fotografías reales de la casa (JPG o WebP).
+Mientras un archivo no exista, el sitio muestra un recuadro "Agregar fotografía".
+
+Nombres esperados (puedes cambiarlos en src/data/gallery.ts, src/data/places.ts y src/data/property.ts):
+
+  hero-casa-villarrica.jpg   Foto principal del Hero (horizontal, mín. 2000 px de ancho)
+  casa-exterior-1.jpg
+  casa-exterior-2.jpg        También se usa en la sección "La casa"
+  living.jpg
+  cocina.jpg
+  dormitorio-1.jpg
+  dormitorio-2.jpg
+  bano.jpg
+  patio.jpg
+  entorno-1.jpg
+  og-cover.jpg               Imagen al compartir el link (1200x630)
+
+  lugar-lago.jpg, lugar-pucon.jpg, lugar-volcan.jpg, lugar-parques.jpg,
+  lugar-termas.jpg, lugar-gastronomia.jpg, lugar-playas.jpg, lugar-senderismo.jpg
+
+Recomendación: exporta en WebP (calidad 75-80), máx. 2400 px de ancho; el Hero idealmente < 400 KB.

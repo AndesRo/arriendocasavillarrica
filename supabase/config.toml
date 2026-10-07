@@ -1,0 +1,6 @@
+project_id = "casa-villarrica"
+
+# Esta función la llama un Database Webhook (no un navegador) y se protege
+# con el secreto "x-webhook-secret", por eso no exige JWT.
+[functions.notify-inquiry]
+verify_jwt = false

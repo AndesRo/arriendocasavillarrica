@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: auto;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
+  }
+  :focus-visible {
+    outline: 2px solid #2f4a3d;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .on-dark :focus-visible,
+  .on-dark:focus-visible {
+    outline-color: #ffffff;
+  }
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+  ::selection {
+    background: #d9c8ae;
+    color: #17201c;
+  }
+  img {
+    -webkit-user-drag: none;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-[0.8125rem] font-semibold uppercase tracking-eyebrow;
+  }
+  .section-title {
+    @apply font-serif text-[clamp(2.6rem,7vw,5.5rem)] font-medium leading-[1.02] tracking-[-0.01em];
+  }
+  .btn {
+    @apply inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full px-8 text-[0.8125rem] font-semibold uppercase tracking-[0.18em] transition duration-300;
+  }
+  .btn-forest {
+    @apply bg-forest text-white hover:bg-forest-dark;
+  }
+  .btn-outline {
+    @apply border border-forest/40 text-forest hover:border-forest hover:bg-forest hover:text-white;
+  }
+  .field {
+    @apply w-full rounded-2xl border border-ink/15 bg-white px-4 py-3.5 text-base text-ink outline-none transition placeholder:text-ink/40 focus:border-forest focus:ring-2 focus:ring-forest/25;
+  }
+  .field-error {
+    @apply border-[#a0412f] focus:border-[#a0412f] focus:ring-[#a0412f]/25;
+  }
+
+  /* Patrón diagonal: indica "reservado" sin depender solo del color */
+  .hatch {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(122, 74, 66, 0.18) 0,
+      rgba(122, 74, 66, 0.18) 2px,
+      transparent 2px,
+      transparent 6px
+    );
+  }
+
+  /* Animaciones de entrada al hacer scroll (solo con JS) */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+      opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .js .reveal-scale {
+    opacity: 0;
+    transform: scale(1.045);
+    transition:
+      opacity 1.1s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .js .reveal.in,
+  .js .reveal-scale.in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal,
+  .js .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
