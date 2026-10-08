@@ -7,7 +7,7 @@ const links = [
   { href: '#la-casa', label: 'La casa' },
   { href: '#galeria', label: 'Galería' },
   { href: '#disponibilidad', label: 'Disponibilidad' },
-  { href: '#villarrica', label: 'Villarrica' },
+  { href: '#villarrica', label: 'Clima' },
   { href: '#contacto', label: 'Contacto' },
 ];
 
@@ -41,8 +41,8 @@ export default function Navbar() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${solid
-            ? 'border-b border-ink/5 bg-cream/85 text-ink backdrop-blur-md'
-            : 'on-dark bg-transparent text-white'
+          ? 'border-b border-ink/5 bg-cream/85 text-ink backdrop-blur-md'
+          : 'on-dark bg-transparent text-white'
           }`}
       >
         <nav
@@ -72,8 +72,8 @@ export default function Navbar() {
               <a
                 href="#disponibilidad"
                 className={`inline-flex min-h-[2.75rem] items-center rounded-full px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] transition duration-300 ${solid
-                    ? 'bg-forest text-white hover:bg-forest-dark'
-                    : 'border border-white/70 text-white hover:bg-white hover:text-ink'
+                  ? 'bg-forest text-white hover:bg-forest-dark'
+                  : 'border border-white/70 text-white hover:bg-white hover:text-ink'
                   }`}
               >
                 Consultar disponibilidad
