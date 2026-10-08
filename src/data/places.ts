@@ -21,7 +21,7 @@ export const places: Place[] = [
     name: 'Pucón',
     description: 'Localidad vecina con restaurantes, comercio y actividades al aire libre.',
     distance: null,
-    image: '/images/lugar-pucon.jpg',
+    image: '/images/pucon.jpg',
     url: null,
   },
   {
@@ -49,21 +49,21 @@ export const places: Place[] = [
     name: 'Gastronomía',
     description: 'Cafés, restaurantes y productos locales para probar el sur de Chile.',
     distance: null,
-    image: '/images/lugar-gastronomia.jpg',
+    image: '/images/cazuela.jpg',
     url: null,
   },
   {
     name: 'Playas',
     description: 'Costa de lago para disfrutar del sol y el agua en temporada de verano.',
     distance: null,
-    image: '/images/lugar-playas.jpg',
+    image: '/images/playa.jpg',
     url: null,
   },
   {
     name: 'Senderismo',
     description: 'Rutas para distintos niveles entre bosques, lagos y volcanes.',
     distance: null,
-    image: '/images/lugar-senderismo.jpg',
+    image: '/images/senderismo.jpg',
     url: null,
   },
 ];
