@@ -40,11 +40,10 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-          solid
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${solid
             ? 'border-b border-ink/5 bg-cream/85 text-ink backdrop-blur-md'
             : 'on-dark bg-transparent text-white'
-        }`}
+          }`}
       >
         <nav
           aria-label="Principal"
@@ -72,11 +71,10 @@ export default function Navbar() {
             <li>
               <a
                 href="#disponibilidad"
-                className={`inline-flex min-h-[2.75rem] items-center rounded-full px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] transition duration-300 ${
-                  solid
+                className={`inline-flex min-h-[2.75rem] items-center rounded-full px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] transition duration-300 ${solid
                     ? 'bg-forest text-white hover:bg-forest-dark'
                     : 'border border-white/70 text-white hover:bg-white hover:text-ink'
-                }`}
+                  }`}
               >
                 Consultar disponibilidad
               </a>
@@ -99,10 +97,8 @@ export default function Navbar() {
       {/* Menú móvil a pantalla completa */}
       <div
         id="menu-movil"
-        aria-hidden={!open}
-        className={`fixed inset-0 z-40 flex-col justify-center bg-cream px-8 pt-20 lg:hidden ${
-          open ? 'flex' : 'hidden'
-        }`}
+        className={`fixed inset-0 z-40 flex-col justify-center bg-cream px-8 pt-20 lg:hidden ${open ? 'flex' : 'hidden'
+          }`}
       >
         <ul className="space-y-1">
           {links.map((l) => (
