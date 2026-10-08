@@ -12,17 +12,17 @@ export const property = {
   tagline: 'Un lugar para disfrutar el sur de Chile.',
   location: 'Villarrica, Región de La Araucanía, Chile',
 
-  // Datos rápidos. `null` = pendiente de completar (se muestra "—").
-  guests: null as number | null, // [CAPACIDAD]
-  bedrooms: null as number | null, // [DORMITORIOS]
-  bathrooms: null as number | null, // [BAÑOS]
-  parking: null as number | null, // [ESTACIONAMIENTO]
+  // Datos rápidos. `null` = pendiente de completar (se muestra "—"). 
+  guests: 4 as number | null, // [CAPACIDAD] 
+  bedrooms: 2 as number | null, // [DORMITORIOS] 
+  bathrooms: 1 as number | null, // [BAÑOS] 
+  parking: 1 as number | null, // [ESTACIONAMIENTO]
 
   // Contacto. Puedes escribirlos aquí o definirlos en .env.local
   // WhatsApp: código de país + número, solo dígitos (ej: "569XXXXXXXX").
-  whatsapp: env.VITE_WHATSAPP_NUMBER || '', // WHATSAPP_NUMBER
-  email: env.VITE_CONTACT_EMAIL || '',
-  instagram: env.VITE_INSTAGRAM_URL || '', // URL completa del perfil
+  whatsapp: env.VITE_WHATSAPP_NUMBER || '56997416485', // WHATSAPP_NUMBER
+  email: env.VITE_CONTACT_EMAIL || 'andespart.ar@gmail.com',
+  instagram: env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/casavillarrica/', // URL completa del perfil
 
   whatsappMessage:
     'Hola, estoy interesado en arrendar la casa en Villarrica. Quisiera consultar disponibilidad.',
@@ -35,7 +35,7 @@ export const property = {
 
   // Textos editables
   copy: {
-    heroEyebrow: 'Villarrica · Región de La Araucanía',
+    heroEyebrow: 'Villarrica · Arriendo de vacaciones · Región de La Araucanía',
     heroTitleLine1: 'Tu lugar para',
     heroTitleLine2: 'desconectar.',
     heroSubtitle:
