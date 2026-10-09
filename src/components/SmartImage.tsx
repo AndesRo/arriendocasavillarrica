@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import Placeholder from './Placeholder';
 
 interface SmartImageProps {
@@ -11,6 +11,7 @@ interface SmartImageProps {
   sizes?: string;
   placeholderLabel?: string;
   placeholderTone?: 'light' | 'dark';
+  style?: CSSProperties;
 }
 
 /**
@@ -26,6 +27,7 @@ export default function SmartImage({
   sizes,
   placeholderLabel,
   placeholderTone = 'light',
+  style,
 }: SmartImageProps) {
   const [failed, setFailed] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -45,6 +47,7 @@ export default function SmartImage({
       srcSet={srcSet}
       sizes={sizes}
       alt={alt}
+      style={style}
       className={`${className} transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
       loading={priority ? 'eager' : 'lazy'}
       decoding={priority ? 'sync' : 'async'}

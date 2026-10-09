@@ -29,13 +29,27 @@ export const property = {
 
   // Imágenes principales (coloca tus fotos reales en /public/images)
   images: {
+    heroMobileImageHeight: 70,
+    heroPosition:
+      'center',
+    heroWater: {
+      enabled: true,
+      area: [0.552, 0.59, 1, 0.76] as [number, number, number, number],
+      exclude: [
+        [0.862, 0, 0.912, 1],     // poste derecho del arco
+        [0.62, 0.7, 0.65, 1],     // bolardo
+        [0.76, 0.7, 0.815, 1],    // escalera del muelle
+        [0.548, 0.735, 0.607, 1], // borde de cemento
+      ] as [number, number, number, number][],
+      strength: 1,
+    },
     hero: '/images/hero-casa-villarrica.jpg',
     about: '/images/casa-exterior-2.jpg',
   },
 
   // Textos editables
   copy: {
-    heroEyebrow: 'Villarrica · Arriendo de vacaciones · Región de La Araucanía',
+    heroEyebrow: 'Villarrica · Arriendo · Región de La Araucanía',
     heroTitleLine1: 'Tu lugar para',
     heroTitleLine2: 'desconectar.',
     heroSubtitle:
