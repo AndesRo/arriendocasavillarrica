@@ -145,9 +145,8 @@ export default function BookingForm({ prefill }: { prefill: Prefill | null }) {
       ? diffNights(values.llegada, values.salida)
       : 0;
 
-  const whatsappMsg = `${property.whatsappMessage}${
-    nights ? ` Fechas: ${formatLong(values.llegada)} al ${formatLong(values.salida)}.` : ''
-  }`;
+  const whatsappMsg = `${property.whatsappMessage}${nights ? ` Fechas: ${formatLong(values.llegada)} al ${formatLong(values.salida)}.` : ''
+    }`;
 
   return (
     <section id="contacto" className="bg-cream py-20 sm:py-28" aria-labelledby="reserva-titulo">

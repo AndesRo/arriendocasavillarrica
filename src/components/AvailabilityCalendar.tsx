@@ -164,9 +164,8 @@ export default function AvailabilityCalendar({ onConsult }: Props) {
                 onClick={() => handlePick(iso)}
                 onMouseEnter={() => setHover(iso)}
                 onMouseLeave={() => setHover(null)}
-                className={`relative mx-auto flex aspect-square w-full max-w-[3.25rem] items-center justify-center rounded-full text-[1.0625rem] transition-colors disabled:cursor-not-allowed ${cls} ${
-                  isBooked && !past && actionable ? 'ring-1 ring-forest/60' : ''
-                } ${iso === today && !isStart && !isEnd ? 'underline decoration-forest decoration-2 underline-offset-4' : ''}`}
+                className={`relative mx-auto flex aspect-square w-full max-w-[3.25rem] items-center justify-center rounded-full text-[1.0625rem] transition-colors disabled:cursor-not-allowed ${cls} ${isBooked && !past && actionable ? 'ring-1 ring-forest/60' : ''
+                  } ${iso === today && !isStart && !isEnd ? 'underline decoration-forest decoration-2 underline-offset-4' : ''}`}
               >
                 {day}
               </button>

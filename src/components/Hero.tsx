@@ -1,4 +1,4 @@
-import { useEffect, useRef, type CSSProperties } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { property } from '../data/property';
 import HeroWater from './HeroWater';
 import { ArrowDown } from './Icons';
@@ -7,6 +7,45 @@ import SmartImage from './SmartImage';
 export default function Hero() {
   const bgRef = useRef<HTMLDivElement>(null);
   const { copy, images } = property;
+
+  // En teléfonos la foto se recorta (pantalla vertical). Se calcula qué parte mostrar para que el punto
+  // `heroFocusX` de la foto (p. ej. el arco "villarrica") quede centrado. En escritorio se usa `heroPosition`.
+  // `heroFocusX` es opcional en property.ts: si no existe se usa 0.7 (el arco); con `null` se desactiva.
+  const focusX: number | null = 'heroFocusX' in images ? (images.heroFocusX as number | null) : 0.7;
+  const [position, setPosition] = useState<string>(images.heroPosition);
+  useEffect(() => {
+    const el = bgRef.current;
+    if (!el) return;
+    const desktop = window.matchMedia('(min-width: 768px)');
+    const probe = new Image();
+    let alive = true;
+    const update = () => {
+      if (!alive) return;
+      const focus = focusX;
+      if (desktop.matches || focus == null || !probe.naturalWidth) {
+        setPosition(images.heroPosition);
+        return;
+      }
+      const W = el.clientWidth;
+      const H = el.clientHeight;
+      if (!W || !H) return;
+      const scale = Math.max(W / probe.naturalWidth, H / probe.naturalHeight); // object-fit: cover
+      const dw = probe.naturalWidth * scale;
+      const p = dw - W < 1 ? 0.5 : Math.min(1, Math.max(0, (focus * dw - W / 2) / (dw - W)));
+      setPosition(`${(p * 100).toFixed(2)}% 50%`);
+    };
+    probe.onload = update;
+    probe.src = images.hero;
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    desktop.addEventListener('change', update);
+    return () => {
+      alive = false;
+      probe.onload = null;
+      ro.disconnect();
+      desktop.removeEventListener('change', update);
+    };
+  }, [images.hero, images.heroPosition, focusX]);
 
   // Parallax muy sutil, solo en pantallas anchas. Desactivado con prefers-reduced-motion.
   useEffect(() => {
@@ -54,13 +93,13 @@ export default function Hero() {
           src={images.hero}
           alt={`Vista de ${property.name}, casa de vacaciones en Villarrica`}
           className="h-full w-full object-cover"
-          style={{ objectPosition: images.heroPosition }}
+          style={{ objectPosition: position }}
           priority
           placeholderLabel="Agregar fotografía principal"
           placeholderTone="dark"
         />
         {images.heroWater.enabled && (
-          <HeroWater src={images.hero} position={images.heroPosition} water={images.heroWater} />
+          <HeroWater src={images.hero} position={position} water={images.heroWater} />
         )}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-forest-dark to-transparent md:hidden" />
       </div>

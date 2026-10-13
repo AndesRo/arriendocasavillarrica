@@ -41,11 +41,10 @@ export default function Gallery() {
                 type="button"
                 onClick={() => setFilter(f)}
                 aria-pressed={filter === f}
-                className={`min-h-[2.75rem] whitespace-nowrap rounded-full border px-5 text-[0.9rem] font-medium transition ${
-                  filter === f
+                className={`min-h-[2.75rem] whitespace-nowrap rounded-full border px-5 text-[0.9rem] font-medium transition ${filter === f
                     ? 'border-forest bg-forest text-white'
                     : 'border-ink/20 text-ink/80 hover:border-forest hover:text-forest'
-                }`}
+                  }`}
               >
                 {f}
               </button>
